@@ -1,5 +1,6 @@
 import React,{ Component, useState } from "react";
 import axios from "axios";
+import { useNavigate} from 'react-router-dom';
 
 
 
@@ -14,7 +15,7 @@ class Products extends Component {
             products: []
         }; 
     }
-
+    
     componentDidMount() {
         const fetchProducts = () => {
             axios(SERVER_URL).then((response) => {
@@ -27,16 +28,18 @@ class Products extends Component {
     render() {
         return (
             <div>
-                <ProductList products={this.state.products} />                                
+                <ProductList products={this.state.products} handleOrderID={this.props.handleOrderID}/>                                
             </div>
         )
     }
 }
 
 const ProductList = (props) => {
+    const navigate = useNavigate();
     const [product_ids, setProduct_ids] = useState ([]);
     const [total_price, setTotalPrice] = useState('');
     const [customer_id, setCustomerId] = useState('');
+    const [orderID, setOrderID] = useState('')
 
     const _handleClick = (id, price) => {
         console.log('before', product_ids);
@@ -47,12 +50,16 @@ const ProductList = (props) => {
         
     }
 
-    const _handleSubmit = (event) => {
-        event.preventDefault();        
-        axios.post(SERVER_URL_POST, {order:{total_price: total_price, product_ids: product_ids, customer_id: customer_id}}).then((response) => 
+    const _handleSubmit = async (event) => {
+        event.preventDefault();              
+        await axios.post(SERVER_URL_POST, {order:{total_price: total_price, product_ids: product_ids, customer_id: customer_id}}).then((response) => 
         {
-            console.log(response.data);
+        setOrderID(response.data.id.toString());
+        console.log(response.data.id);
+        props.handleOrderID(response.data.id);
         });
+        navigate(`/orders/${orderID}`);
+        console.log('orderID', orderID);
     }
 
     
@@ -63,9 +70,9 @@ const ProductList = (props) => {
                 <div key={p.id}>
                     <h3>{p.name}</h3>
                     <img src={p.image} />
-                    <p>Price: ${p.price}</p>                    
-                        <button value={p.id} onClick={() => _handleClick(p.id, p.price)}>Add to order</button>                   
-                    </div>                     
+                    <p>${p.price}</p>                                     
+                    {p.available ? <button value={p.id} onClick={() => _handleClick(p.id, p.price)}>Add to order</button> : <p style={{color: 'red'}}>Sold Out</p>}                   
+                </div>                     
                 )}
                 <button onClick={_handleSubmit}>Place Order</button>            
         </div>
