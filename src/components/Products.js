@@ -36,6 +36,7 @@ class Products extends Component {
 }
 
 const ProductList = (props) => {
+    
     const navigate = useNavigate();
     const [product_ids, setProduct_ids] = useState ([]);
     const [total_price, setTotalPrice] = useState('');
@@ -59,8 +60,9 @@ const ProductList = (props) => {
         
     }   
     
-    return (
-        <div>           
+    return (    
+        <div> 
+            {props.products.length === 0 ? <div>Loading...</div> : null}           
                 {props.products.map((p) =>
                 <div key={p.id}>
                     <h3>{p.name}</h3>
