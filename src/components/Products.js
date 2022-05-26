@@ -4,7 +4,7 @@ import { useNavigate} from 'react-router-dom';
 
 
 
-const SERVER_URL = 'http://localhost:3000/products.json'
+const SERVER_URL = 'https://burger-shop-backend.herokuapp.com/products.json'
 const SERVER_URL_POST = 'http://localhost:3000/orders.json'
 
 
@@ -20,6 +20,7 @@ class Products extends Component {
         const fetchProducts = () => {
             axios(SERVER_URL).then((response) => {
                 this.setState({products: response.data})
+                console.log(this.state.products);
             });
         }
         fetchProducts();
@@ -41,28 +42,22 @@ const ProductList = (props) => {
     const [customer_id, setCustomerId] = useState('');
     const [orderID, setOrderID] = useState('')
 
-    const _handleClick = (id, price) => {
-        console.log('before', product_ids);
+    const _handleClick = (id, price) => {        
         const newPrice = (Number(total_price) + Number(price)).toString();
         setProduct_ids([...product_ids,id]);
-        setTotalPrice(newPrice)
-        console.log(total_price, 'after', product_ids);
-        
+        setTotalPrice(newPrice)      
     }
 
     const _handleSubmit = async (event) => {
         event.preventDefault();              
         await axios.post(SERVER_URL_POST, {order:{total_price: total_price, product_ids: product_ids, customer_id: customer_id}}).then((response) => 
         {
-        setOrderID(response.data.id.toString());
-        console.log(response.data.id);
+        setOrderID(response.data.id.toString());        
         props.handleOrderID(response.data.id);
         });
         navigate(`/orders/${orderID}`);
-        console.log('orderID', orderID);
-    }
-
-    
+        
+    }   
     
     return (
         <div>           

@@ -4,20 +4,24 @@ import axios from "axios";
 const SERVER_URL = 'http://localhost:3000/orders.json'
 
 const Orders = (props) => {
-    const [order, setOrder] = useState('');
-    const current_order = props.orderID
+    const [orders, setOrders] = useState([]);
+    const current_order = props.orderID   
         useEffect (() => {
-            axios(SERVER_URL).where('id' == current_order).then((response) => {                
-                setOrder(response.data);
+            axios(SERVER_URL).then((response) => {                
+                setOrders(response.data);                
+                console.log(orders);
             });
         }, []);
+        // console.log(orders);
+        // orders.forEach(function() {
+        //     if (orders.id === current_order){
+        //         console.log('found');
+        //     }
+        // })     
         
-        console.log('orders', order);
-    
-    //console.log('Loden 3', props.orderID.toString())
     return(
         <div>
-            Order comming soon
+            order coming soon
         </div>
     )
 }
