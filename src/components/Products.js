@@ -71,7 +71,7 @@ const ProductList = (props) => {
                     {p.available ? <button value={p.id} onClick={() => _handleClick(p.id, p.price)}>Add to order</button> : <p style={{color: 'red'}}>Sold Out</p>}                   
                 </div>                     
                 )}
-                <button onClick={_handleSubmit}>Place Order</button>            
+                <button onClick={_handleSubmit} disabled={product_ids.length === 0}>Place Order</button>            
         </div>
     )
 }
