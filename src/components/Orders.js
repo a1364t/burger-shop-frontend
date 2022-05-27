@@ -2,7 +2,7 @@ import React, { useEffect, useState} from "react";
 import axios from "axios";
 
 //const SERVER_URL = 'http://localhost:3000/orders.json'
-const SERVER_URL_CUSTOMER = 'http://localhost:3000/customers.json'
+const SERVER_URL_CUSTOMER = 'https://burger-shop-backend.herokuapp.com/customers.json'
 
 const Orders = (props) => {
     const [order, setOrder] = useState([]);
@@ -11,7 +11,7 @@ const Orders = (props) => {
         
        
         useEffect(() => {
-            axios(`http://localhost:3000/orders/${current_order}.json`).then((response) => {
+            axios(`https://burger-shop-backend.herokuapp.com/orders/${current_order}.json`).then((response) => {
                 setOrder(response.data);                
             });
             // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,7 +47,7 @@ const CustomerForm = (props) => {
         await axios.post(SERVER_URL_CUSTOMER, {customer:{name: name, phone: phone}}).then((response) => {
             setCustomerID(response.data.id);
         })
-        await axios.put(`http://localhost:3000/orders/${current_order}.json`, {order:{customer_id: customer_id}}).then((response) => {
+        await axios.put(`https://burger-shop-backend.herokuapp.com/orders/${current_order}.json`, {order:{customer_id: customer_id}}).then((response) => {
            setOder(response.data);
            console.log(order);
         })
