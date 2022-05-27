@@ -20,7 +20,7 @@ const Orders = (props) => {
                
     return(
         <div>
-            <p>{order.id || "error"}</p>
+            <p>{order.id === undefined ? "No item selected" : <p>{order.products.length} item(s) selected</p> } </p>
             {completed === false ? <CustomerForm current_order={current_order} handleCompleted={setCompleted}/> : <FinaliseOrder order={order}/>}
             
         </div>
