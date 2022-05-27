@@ -57,11 +57,11 @@ const CustomerForm = (props) => {
     return(
         <form onSubmit={_handleSubmit}>
             <label>Your Name:
-                <input type='text' onChange={_handleChangeName} value={name} />
+                <input type='text' onChange={_handleChangeName} value={name} required/>
             </label>
 
             <label>Your Phone Number:
-                <input type='text' onChange={_handleChangePhone} value={phone} />
+                <input type='text' onChange={_handleChangePhone} value={phone} required/>
             </label>
             
             <input type='submit' value='Enter your details' />
