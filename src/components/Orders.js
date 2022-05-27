@@ -1,7 +1,7 @@
-import React, {Component, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import axios from "axios";
 
-const SERVER_URL = 'http://localhost:3000/orders.json'
+//const SERVER_URL = 'http://localhost:3000/orders.json'
 const SERVER_URL_CUSTOMER = 'http://localhost:3000/customers.json'
 
 const Orders = (props) => {
@@ -12,16 +12,15 @@ const Orders = (props) => {
        
         useEffect(() => {
             axios(`http://localhost:3000/orders/${current_order}.json`).then((response) => {
-                setOrder(response.data);
-                console.log(order)
-            })
+                setOrder(response.data);                
+            });
         }, [completed]);
 
                
     return(
         <div>
             <p>{order.id}</p>
-            {completed == false ? <CustomerForm current_order={current_order} handleCompleted={setCompleted}/> : <FinaliseOrder order={order}/>}
+            {completed === false ? <CustomerForm current_order={current_order} handleCompleted={setCompleted}/> : <FinaliseOrder order={order}/>}
             
         </div>
     )
@@ -49,6 +48,7 @@ const CustomerForm = (props) => {
         })
         await axios.put(`http://localhost:3000/orders/${current_order}.json`, {order:{customer_id: customer_id}}).then((response) => {
            setOder(response.data);
+           console.log(order);
         })
         props.handleCompleted(true);
         

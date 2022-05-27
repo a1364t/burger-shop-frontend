@@ -39,7 +39,8 @@ const ProductList = (props) => {
     const navigate = useNavigate();
     const [product_ids, setProduct_ids] = useState ([]);
     const [total_price, setTotalPrice] = useState('');
-    const [customer_id, setCustomerId] = useState('');
+    const customer_id = ''
+    //const [customer_id, setCustomerId] = useState('');
     const [orderID, setOrderID] = useState('')
 
     const _handleClick = (id, price) => {        
