@@ -6,6 +6,7 @@ const SERVER_URL_CUSTOMER = 'http://localhost:3000/customers.json'
 
 const Orders = (props) => {
     const [order, setOrder] = useState([]);
+    const [completed, setCompleted] = useState(false);
     const current_order = props.orderID;
         
        
@@ -14,13 +15,14 @@ const Orders = (props) => {
                 setOrder(response.data);
                 console.log(order)
             })
-        }, []);
+        }, [completed]);
 
                
     return(
         <div>
-            <p>{order.product_ids}</p>
-            {order.customer_id == null ? <CustomerForm current_order={current_order}/> : <FinaliseOrder />}
+            <p>{order.id}</p>
+            {completed == false ? <CustomerForm current_order={current_order} handleCompleted={setCompleted}/> : <FinaliseOrder order={order}/>}
+            
         </div>
     )
 }
@@ -30,7 +32,7 @@ const CustomerForm = (props) => {
    const [name, setName] = useState('');
    const [phone, setPhone] = useState('');
    const [customer_id, setCustomerID] = useState('');
-   console.log(current_order);
+   const [order, setOder] = useState([]);
 
     const _handleChangeName = (event) => {
         setName(event.target.value);              
@@ -46,8 +48,9 @@ const CustomerForm = (props) => {
             setCustomerID(response.data.id);
         })
         await axios.put(`http://localhost:3000/orders/${current_order}.json`, {order:{customer_id: customer_id}}).then((response) => {
-            console.log(response.data);
+           setOder(response.data);
         })
+        props.handleCompleted(true);
         
     }
     return(
@@ -70,6 +73,13 @@ const FinaliseOrder = (props) => {
     
     return(
         <div>
+        {props.order.products.map((p) => 
+            <div key={p.id}>
+                <h3>{p.name}</h3>
+            </div>
+        )}
+        
+            
             <button>Pay</button>
         </div>
     )
