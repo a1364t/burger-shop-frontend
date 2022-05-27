@@ -14,6 +14,7 @@ const Orders = (props) => {
             axios(`http://localhost:3000/orders/${current_order}.json`).then((response) => {
                 setOrder(response.data);                
             });
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [completed]);
 
                
@@ -77,9 +78,8 @@ const FinaliseOrder = (props) => {
             <div key={p.id}>
                 <h3>{p.name}</h3>
             </div>
-        )}
-        
-            
+        )}       
+            <p>Total price: {props.order.total_price}</p>   
             <button>Pay</button>
         </div>
     )
