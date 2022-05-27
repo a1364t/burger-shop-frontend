@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:3000/customers.json'
+const SERVER_URL = 'https://burger-shop-backend.herokuapp.com/customers.json'
 
 class Customers extends Component {
     constructor() {
