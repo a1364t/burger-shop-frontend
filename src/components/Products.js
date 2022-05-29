@@ -69,6 +69,7 @@ const ProductList = (props) => {
                 <div key={p.id}>
                     <h3>{p.name}</h3>
                     <img src={p.image} alt="Product"/>
+                    <p>{p.description}</p>
                     <p>${p.price}</p>                                     
                     {p.available ? <button value={p.id} onClick={() => _handleClick(p.id, p.price)}>Add to order</button> : <p style={{color: 'red'}}>Sold Out</p>}                   
                 </div>                     
