@@ -21,7 +21,7 @@ const Orders = (props) => {
                
     return(
         <div>
-            <p>{order.id === undefined ? "No item selected" : <p>{order.products.length} item(s) selected</p> } </p>
+            {order.id === undefined ? "No item selected" : <p>{order.products.length} item(s) selected</p> } 
             {completed === false ? <CustomerForm current_order={current_order} handleCompleted={setCompleted}/> : <FinaliseOrder order={order}/>}
             
         </div>
@@ -34,6 +34,8 @@ const CustomerForm = (props) => {
    const [phone, setPhone] = useState('');
    const [customer_id, setCustomerID] = useState('');
    const [order, setOder] = useState([]);
+   const phoneNumberError = [];
+   const [validatePhone, setValidatePhone] = useState([]);
 
     const _handleChangeName = (event) => {
         setName(event.target.value);              
@@ -41,6 +43,14 @@ const CustomerForm = (props) => {
 
     const _handleChangePhone = (event) => {
         setPhone(event.target.value);
+        const phoneNumberCheck = event.target.value.toString();
+        console.log(phoneNumberCheck);
+        if(isNaN(Number(event.target.value))){phoneNumberError.push('Please enter a valid phone number')}
+        if(phoneNumberCheck[0] !== '0'){phoneNumberError.push('Phone number must begins with 0')}
+        if(phoneNumberCheck.length < 10) {phoneNumberError.push('Phone number must be 10 numbers')}        
+        setValidatePhone(phoneNumberError);
+        console.log(phoneNumberCheck);
+        console.log(phoneNumberError);
     }
 
     const _handleSubmit = async (event) => {
@@ -51,8 +61,9 @@ const CustomerForm = (props) => {
         await axios.put(`https://burger-shop-backend.herokuapp.com/orders/${current_order}.json`, {order:{customer_id: customer_id}}).then((response) => {
            setOder(response.data);
            console.log(order);           
-        })
+        })      
         props.handleCompleted(true);
+        
         
     }
     return(
@@ -60,12 +71,21 @@ const CustomerForm = (props) => {
             <label>Your Name:
                 <input type='text' onChange={_handleChangeName} value={name} required/>
             </label>
-
+            <br></br>
             <label>Your Phone Number:
-                <input type='text' onChange={_handleChangePhone} value={phone} required/>
+                <input type='text' onInput={(e) => {setValidatePhone([])}} onChange={_handleChangePhone} value={phone} required placeholder="04.."/>
             </label>
-            
-            <input type='submit' value='Enter your details' />
+            {validatePhone.length > 0 ? (
+                <ul>
+                    {validatePhone.map((error) => {
+                        return <li style={{color: 'red'}} key={Math.random()}>{error}</li>
+                    })}
+                </ul>
+            )
+            : ('')    
+            }
+            <br></br>
+            <input type='submit' value='Enter your details' disabled={validatePhone.length > 0}/>
         </form>
     )
     
