@@ -48,8 +48,7 @@ const CustomerForm = (props) => {
             setCustomerID(response.data.id);
         })
         await axios.put(`https://burger-shop-backend.herokuapp.com/orders/${current_order}.json`, {order:{customer_id: customer_id}}).then((response) => {
-           setOder(response.data);
-           console.log(order);
+           setOder(response.data);           
         })
         props.handleCompleted(true);
         
