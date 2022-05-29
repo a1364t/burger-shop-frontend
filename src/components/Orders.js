@@ -1,8 +1,9 @@
 import React, { useEffect, useState} from "react";
 import axios from "axios";
 
-//const SERVER_URL = 'http://localhost:3000/orders.json'
+//const SERVER_URL_ORDERS = 'http://localhost:3000/orders.json'
 const SERVER_URL_CUSTOMER = 'https://burger-shop-backend.herokuapp.com/customers.json'
+//const SERVER_URL_CUSTOMER = 'http://localhost:3000/customers.json'
 
 const Orders = (props) => {
     const [order, setOrder] = useState([]);
@@ -49,7 +50,7 @@ const CustomerForm = (props) => {
         })
         await axios.put(`https://burger-shop-backend.herokuapp.com/orders/${current_order}.json`, {order:{customer_id: customer_id}}).then((response) => {
            setOder(response.data);
-           console.log(`order ID: ${order.id} successfully updated`);           
+           console.log(order);           
         })
         props.handleCompleted(true);
         

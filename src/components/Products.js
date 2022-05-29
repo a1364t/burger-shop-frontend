@@ -7,6 +7,8 @@ import { useNavigate} from 'react-router-dom';
 const SERVER_URL = 'https://burger-shop-backend.herokuapp.com/products.json'
 const SERVER_URL_POST = 'https://burger-shop-backend.herokuapp.com/orders.json'
 
+//const SERVER_URL = 'http://localhost:3000/products.json'
+//const SERVER_URL_POST = 'http://localhost:3000.com/orders.json'
 
 class Products extends Component {
     constructor() {
