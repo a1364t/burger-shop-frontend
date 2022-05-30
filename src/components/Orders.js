@@ -32,7 +32,7 @@ const CustomerForm = (props) => {
     const current_order = props.current_order
    const [name, setName] = useState('');
    const [phone, setPhone] = useState('');
-   const [customer_id, setCustomerID] = useState('');
+   //const [customer_id, setCustomerID] = useState('');
    const [order, setOder] = useState([]);
    const phoneNumberError = [];
    const [validatePhone, setValidatePhone] = useState([]);
@@ -44,21 +44,25 @@ const CustomerForm = (props) => {
     const _handleChangePhone = (event) => {
         setPhone(event.target.value);
         const phoneNumberCheck = event.target.value.toString();
-        console.log(phoneNumberCheck);
+        // console.log(phoneNumberCheck);
         if(isNaN(Number(event.target.value))){phoneNumberError.push('Please enter a valid phone number')}
         if(phoneNumberCheck[0] !== '0'){phoneNumberError.push('Phone number must begins with 0')}
         if(phoneNumberCheck.length < 10) {phoneNumberError.push('Phone number must be 10 numbers')}        
         setValidatePhone(phoneNumberError);
-        console.log(phoneNumberCheck);
-        console.log(phoneNumberError);
+        // console.log(phoneNumberCheck);
+        // console.log(phoneNumberError); 
     }
 
     const _handleSubmit = async (event) => {
+        console.log('one click');
+
         event.preventDefault();
-        await axios.post(SERVER_URL_CUSTOMER, {customer:{name: name, phone: phone}}).then((response) => {
-            setCustomerID(response.data.id);
-        })
-        await axios.put(`https://burger-shop-backend.herokuapp.com/orders/${current_order}.json`, {order:{customer_id: customer_id}}).then((response) => {
+        const customer = await axios.post(SERVER_URL_CUSTOMER, {customer:{name: name, phone: phone}});
+
+        console.log('customer:', customer.data);// Why isn't this showing?
+    
+        
+        await axios.put(`https://burger-shop-backend.herokuapp.com/orders/${current_order}.json`, {order:{customer_id: customer.data.id}}).then((response) => {
            setOder(response.data);
            console.log(order);           
         })      
@@ -66,6 +70,7 @@ const CustomerForm = (props) => {
         
         
     }
+    console.log(_handleSubmit);
     return(
         <form onSubmit={_handleSubmit}>
             <label>Your Name:
@@ -88,7 +93,6 @@ const CustomerForm = (props) => {
             <input type='submit' value='Enter your details' disabled={validatePhone.length > 0}/>
         </form>
     )
-    
 }
 
 const FinaliseOrder = (props) => {
