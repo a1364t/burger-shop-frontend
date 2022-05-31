@@ -16,3 +16,9 @@ h2 {
     font-weight: bolder;
     font-size: 36px;
 }
+
+@media (max-width: 480px) {
+    h2{
+        font-size: 20px;
+    }
+}

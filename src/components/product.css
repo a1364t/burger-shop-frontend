@@ -21,7 +21,7 @@ body {
 @media (max-width: 480px) {
     .products {
         margin: 0 auto 0;
-        padding-left: 24px;
+        padding-left: 12px;
     }
     .addOrder {
         margin: 0 auto 0;
