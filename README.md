@@ -2,7 +2,7 @@
 
 Burger shop is a full-stack project using React for frontend and Ruby on Rails and PostgreSQL for the backend. The current Repo is associated with the frontend that has been deployed on Netlify.
 
-[Live Demo] (https://burger-shop-final-project.netlify.app/)
+Live Demo: [Burger Shop](https://burger-shop-final-project.netlify.app/)
 
 ## Usage
 
@@ -19,5 +19,8 @@ in future, the following features will be implemented:
 
 - Connect the Stripe payment to the backend.
 - Add user authentications to the app.
+
+## Bugs/Issues
+- Payment component is not connected to the backend
 
 
