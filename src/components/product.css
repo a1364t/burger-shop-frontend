@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Montserrat&display=swap');
+
+
+
+body {
+    font-family: 'Bitter', serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+.products {    
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+
+
+.addOrder {
+    margin-top: 0px;
+    padding: 0px;
+    margin-bottom: 48px;
+    color: white;
+    background-color: rgb(191, 0, 0);
+    border-radius: 5em;
+    height: 48px;
+    width: 148px;       
+}
+
+.description {
+    width: 350px;
+    padding: 8px;   
+    
+}
+
+.items {    
+    width: 32%;
+    min-width: 300px;
+    text-align: center;   
+}
+
+.items>h3 {    
+    width: 350px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 8px;
+}
+
+.image {
+    width: 350px;
+    border-radius: 20px;
+    margin-top: 16px;
+    margin: 8px;    
+    -webkit-box-shadow: 1px 1px 15px 5px rgba(0,0,0,0.17); 
+    box-shadow: 1px 1px 15px 5px rgba(0,0,0,0.17);
+
+}
+
+.image>img{
+    height: 100%;
+}
+
+.price {
+    height: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px;
+   
+}
+
+.placeOrder {
+    display: block;
+    height: 50px;
+    margin: 0 auto 0;
+    width: 350px;
+    color: white;
+    background-color: rgb(191, 0, 0);
+    border-radius: 5em;
+    font-size: larger;
+    font-weight: bolder;
+    
+}
+
+.placeOrderDisabled {
+    display: block;
+    height: 50px;
+    margin: 0 auto 0;
+    width: 350px;
+    color: rgb(179, 174, 174);
+    background-color: rgb(134, 129, 129);
+    border-radius: 5em;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.soldOut {
+    color: rgb(191, 0, 0);
+    margin-bottom: 20px;
+    font-weight: bolder;
+}

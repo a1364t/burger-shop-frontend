@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 //const SERVER_URL_ORDERS = 'http://localhost:3000/orders.json'
 const SERVER_URL_CUSTOMER = 'https://burger-shop-backend.herokuapp.com/customers.json'
@@ -84,13 +85,16 @@ const CustomerForm = (props) => {
             : ('')    
             }
             <br></br>
-            <input type='submit' value='Enter your details' disabled={validatePhone.length > 0}/>
+            <input type='submit' value='Place Your Order' disabled={validatePhone.length > 0}/>
         </form>
     )
 }
 
 const FinaliseOrder = (props) => {
-    
+    const navigate = useNavigate();
+    const _handleClick = (event) => {
+        navigate('/payment')
+    }
     return(
         <div>
         {props.order.products.map((p) => 
@@ -99,7 +103,7 @@ const FinaliseOrder = (props) => {
             </div>
         )}       
             <p>Total price: {props.order.total_price}</p>   
-            <button>Pay</button>
+            <input type="submit" value='Pay' onClick={_handleClick} />
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React,{ Component, useState } from "react";
 import axios from "axios";
 import { useNavigate} from 'react-router-dom';
+import "./product.css"
 
 
 
@@ -36,8 +37,7 @@ class Products extends Component {
     }
 }
 
-const ProductList = (props) => {
-    
+const ProductList = (props) => {    
     const navigate = useNavigate();
     const [product_ids, setProduct_ids] = useState ([]);
     const [total_price, setTotalPrice] = useState('');
@@ -62,19 +62,25 @@ const ProductList = (props) => {
         
     }   
     
-    return (    
-        <div> 
-            {props.products.length === 0 ? <div>Loading...</div> : null}           
-                {props.products.map((p) =>
-                <div key={p.id}>
-                    <h3>{p.name}</h3>
-                    <img src={p.image} alt="Product"/>
-                    <p>{p.description}</p>
-                    <p>${p.price}</p>                                     
-                    {p.available ? <button value={p.id} onClick={() => _handleClick(p.id, p.price)}>Add to order</button> : <p style={{color: 'red'}}>Sold Out</p>}                   
-                </div>                     
-                )}
-                <button onClick={_handleSubmit} disabled={product_ids.length === 0}>Place Order</button>            
+    return (
+        <div>           
+            <div className="products"> 
+                {props.products.length === 0 ? <div>Loading...</div> : null}           
+                    {props.products.map((p) =>
+                    <div key={p.id} className='items'>
+                        <h3>{p.name}</h3>
+                        
+                        <img className="image" src={p.image} alt="Product"/>
+                        
+                        <p className="price">${p.price}</p> 
+                        <p className="description">{p.description}</p>
+                                                            
+                        {p.available ? <button className="addOrder" value={p.id} onClick={() => _handleClick(p.id, p.price)}>Add to order</button> : <p className="soldOut">Sold Out!</p>}                   
+                    </div>                     
+                    )}
+            </div>
+                <br></br>                    
+                <button className={product_ids.length !== 0 ? 'placeOrder' : 'placeOrderDisabled'} onClick={_handleSubmit} disabled={product_ids.length === 0}>Checkout</button>                               
         </div>
     )
 }
