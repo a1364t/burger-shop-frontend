@@ -68,7 +68,7 @@ export default function PaymentForm() {
                         </div>
                     </fieldset>
                     <button className="pay">Pay</button>
-                    <p>Payment Coming Soon</p>
+                    <p style={{"font-weight": "bold"}}>Payment Coming Soon!</p>
                     
                 </form>
                                 

@@ -54,7 +54,7 @@ const CustomerForm = (props) => {
 
     const _handleSubmit = async (event) => {
         event.preventDefault();       
-        if(phoneNumberCheck.length < 10) {
+        if(phoneNumberCheck.length < 10 || phoneNumberCheck.length > 11) {
             phoneNumberError.push('Phone number must be 10 digits');
             props.handleCompleted(false);            
             setValidatePhone(phoneNumberError);
@@ -101,13 +101,13 @@ const FinaliseOrder = (props) => {
     }
     return(
         <div className="orderIfo">
-        <p>Your order for today:</p>
+        <p style={{color: 'grey'}}>Your order for today:</p>
         {props.order.products.map((p) => 
             <div key={p.id}>
                 <h4>{p.name}</h4>
             </div>
         )}       
-            <p>Total price: ${props.order.total_price}</p>   
+            <p style={{color: 'grey'}}>Total price: <span style={{color: 'black'}}>${props.order.total_price}</span></p>   
             <input className="button" type="submit" value='Pay' onClick={_handleClick} />
         </div>
     )

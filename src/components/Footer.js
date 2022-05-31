@@ -3,13 +3,15 @@ import './footer.css'
 
 
 const Footer = () => {
+
     return (
         <div className="Footer">
             <div className="text">
-                <h4>
-                   BURGER SHOP 2022 
-                </h4>
-                <h6>Follow US on Social Media</h6>
+                <p>BURGER SHOP 2022</p>                
+                <p>Follow US on Social Media</p>
+                <p  className="fa fa-facebook"></p>
+                <p  className="fa fa-twitter"></p>
+                <p  className="fa fa-instagram"></p>
             </div>
             
         </div>

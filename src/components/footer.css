@@ -1,28 +1,61 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 @media (max-width: 480px) {
     .Footer {
         display: none;
         visibility: hidden;
     }
 }
-
-
-
 .Footer {
     position: relative;
     bottom: 0;
     left: 0; 
     width: 100%;  
     background-color: black;
-    height: 148px;
+    height: 248px;
     color: white;
     font-weight: bolder;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    margin-top: auto;
+    margin-top: 46px;
 
 }
 
 .text {
     padding-left: 20%;
     padding-top: 24px;
+    color: rgb(173, 172, 172);
 }
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 24px;
+    height: 24px;    
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    margin: 4px;
+    padding: 8px;
+  }
+
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+
+  .fa-instagram {
+      background-color: #EA0C5F;
+      color: white;
+  }
+
+
