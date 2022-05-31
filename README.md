@@ -8,6 +8,7 @@ Live Demo: [Burger Shop](https://burger-shop-final-project.netlify.app/)
 
 This is an online burger shop where users can add meals, drinks, or coffee to their order. The checkout button only gets activated if a user at least selects one of the products. On the following page, the user must enter the name and phone number to associate the order with the current user. Then, the user would be able to see the order and total price. 
 The payment component is working on the frontend, however, it is not connected to the backend.
+The website is mobile responsive.
 
 ## Challenges
 - Generate a REST API and communication between the React application and API.
