@@ -1,10 +1,25 @@
-.Footer {    
+@media (max-width: 480px) {
+    .Footer {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+
+
+.Footer {
+    position: relative;
+    bottom: 0;
+    left: 0; 
+    width: 100%;  
     background-color: black;
     height: 148px;
     color: white;
     font-weight: bolder;
     margin-bottom: 0px;
     padding-bottom: 0px;
+    margin-top: auto;
+
 }
 
 .text {

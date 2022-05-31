@@ -5,6 +5,7 @@
 body {
     font-family: 'Bitter', serif;
     font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
 }
 
 
@@ -14,6 +15,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 auto;
+    padding-left: 32px;
 }
 
 @media (max-width: 480px) {
