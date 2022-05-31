@@ -17,7 +17,7 @@ The payment component is working on the frontend, however, it is not connected t
 ## To be implemented
 in future, the following features will be implemented:
 
-- Connect the Stripe payment to the backend
+- Connect the Stripe payment to the backend.
 - Add user authentications to the app.
 
 
