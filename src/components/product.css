@@ -18,15 +18,14 @@ body {
 
 
 
-.addOrder {
-    margin-top: 0px;
+.addOrder {    
     padding: 0px;
-    margin-bottom: 48px;
+    margin: 0 auto 48px;
     color: white;
     background-color: rgb(191, 0, 0);
     border-radius: 5em;
     height: 48px;
-    width: 148px;       
+    width: 148px;           
 }
 
 .description {

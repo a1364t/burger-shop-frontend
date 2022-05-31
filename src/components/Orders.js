@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './order.css';
 
 //const SERVER_URL_ORDERS = 'http://localhost:3000/orders.json'
 const SERVER_URL_CUSTOMER = 'https://burger-shop-backend.herokuapp.com/customers.json'
@@ -22,7 +23,7 @@ const Orders = (props) => {
                
     return(
         <div>
-            {order.id === undefined ? "No item selected" : <p>{order.products.length} item(s) selected</p> } 
+            {order.id === undefined ? <p className="selectedItem">No item selected</p> : <p className="selectedItem">{order.products.length} item(s) selected</p> } 
             {completed === false ? <CustomerForm current_order={current_order} handleCompleted={setCompleted}/> : <FinaliseOrder order={order}/>}
             
         </div>
@@ -67,26 +68,29 @@ const CustomerForm = (props) => {
         }       
     }    
     return(
-        <form onSubmit={_handleSubmit}>
-            <label>Your Name:
-                <input type='text' onChange={_handleChangeName} value={name} required/>
-            </label>
-            <br></br>
-            <label>Your Phone Number:
-                <input type='text' onInput={(e) => {setValidatePhone([])}} onChange={_handleChangePhone} value={phone} required placeholder="04.."/>
-            </label>
-            {validatePhone.length > 0 ? (
-                <ul>
-                    {validatePhone.map((error) => {
-                        return <li style={{color: 'red'}} key={Math.random()}>{error}</li>
-                    })}
-                </ul>
-            )
-            : ('')    
-            }
-            <br></br>
-            <input type='submit' value='Place Your Order' disabled={validatePhone.length > 0}/>
-        </form>
+        <div className="customerInfo">
+            <form onSubmit={_handleSubmit}>
+                <label className="label">Your Name*<br></br>
+                    <input className="input" type='text' onChange={_handleChangeName} value={name} required/>
+                </label>
+                <br></br>
+                <label className="label">Your Phone Number*<br></br>
+                    <input className="input" type='text' onInput={(e) => {setValidatePhone([])}} onChange={_handleChangePhone} value={phone} required placeholder="04.."/>
+                </label>
+                {validatePhone.length > 0 ? (
+                    <ul>
+                        {validatePhone.map((error) => {
+                            return <li className="error" key={Math.random()}>{error}</li>
+                        })}
+                    </ul>
+                )
+                : ('')    
+                }
+                <br></br>
+                <input className={validatePhone.length > 0  ? "disabledButton" : 'button'} type='submit' value='Place Your Order' disabled={validatePhone.length > 0}/>
+            </form>
+        </div>
+        
     )
 }
 
@@ -96,14 +100,15 @@ const FinaliseOrder = (props) => {
         navigate('/payment')
     }
     return(
-        <div>
+        <div className="orderIfo">
+        <p>Your order for today:</p>
         {props.order.products.map((p) => 
             <div key={p.id}>
-                <h3>{p.name}</h3>
+                <h4>{p.name}</h4>
             </div>
         )}       
-            <p>Total price: {props.order.total_price}</p>   
-            <input type="submit" value='Pay' onClick={_handleClick} />
+            <p>Total price: ${props.order.total_price}</p>   
+            <input className="button" type="submit" value='Pay' onClick={_handleClick} />
         </div>
     )
 }

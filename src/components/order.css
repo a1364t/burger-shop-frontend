@@ -1,0 +1,56 @@
+.customerInfo {    
+    text-align: center;
+}
+
+.selectedItem {
+    text-align: center;
+    font-weight: bolder;
+    padding-bottom: 16px;
+    background-color: rgb(191, 0, 0);
+    color: white;
+    width: 60%;
+    margin: 0 auto 24px;
+    border-radius: 10px;        
+}
+
+.button {
+    padding: 10px;
+    margin: 16px auto 48px;
+    color: white;
+    background-color: rgb(191, 0, 0);
+    border-radius: 5em;
+    height: 48px;
+    width: 148px; 
+}
+
+.disabledButton {
+    padding: 10px;
+    margin: 16px auto 48px;
+    color: rgb(179, 174, 174);
+    background-color: rgb(134, 129, 129);
+    border-radius: 5em;
+    height: 48px;
+    width: 148px;
+}
+
+.input{
+    border-radius: 5em;
+    height: 24px;
+    margin: 24px auto 24px;
+    font-size: larger;
+}
+
+.label {
+    font-weight: bolder;
+    margin-top: 16px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.orderIfo {
+    text-align: center;
+    font-weight: bold;
+}

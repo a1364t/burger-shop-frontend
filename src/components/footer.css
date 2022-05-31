@@ -1,0 +1,13 @@
+.Footer {    
+    background-color: black;
+    height: 148px;
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.text {
+    padding-left: 20%;
+    padding-top: 24px;
+}

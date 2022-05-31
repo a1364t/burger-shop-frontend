@@ -4,6 +4,7 @@ import Orders from "./Orders";
 import StripeContainer from "./StripeContainer";
 import React,{useState} from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 
@@ -23,7 +24,8 @@ function App() {
           <Route path="/orders" element={<Orders orderID={order_id} />} />
           <Route path="/payment" element={<StripeContainer/>} />
         </Routes>
-      </Router>      
+      </Router>
+      <Footer />      
     </div>
   );
 }
