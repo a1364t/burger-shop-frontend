@@ -7,3 +7,9 @@
     margin: 0 auto 0;
     margin-bottom: 100px;
 }
+
+h2 {
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+}

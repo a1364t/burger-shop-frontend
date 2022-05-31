@@ -16,11 +16,23 @@ body {
     margin: 0 auto;
 }
 
+@media (max-width: 480px) {
+    .products {
+        margin: 0 auto 0;
+        padding-left: 24px;
+    }
+    .addOrder {
+        margin: 0 auto 0;
+        padding-left: 50px;
+    }
+    
+}
 
 
 .addOrder {    
     padding: 0px;
-    margin: 0 auto 48px;
+    margin: 0 auto;
+    margin-bottom: 48px;
     color: white;
     background-color: rgb(191, 0, 0);
     border-radius: 5em;
@@ -35,9 +47,9 @@ body {
 }
 
 .items {    
-    width: 32%;
+    width: 33%;
     min-width: 300px;
-    text-align: center;   
+    text-align: left;     
 }
 
 .items>h3 {    

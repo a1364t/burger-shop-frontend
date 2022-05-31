@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
+import './paymentform.css'
 
 const CARD_OPTION = {
     iconStyle: 'solid',
@@ -66,7 +67,7 @@ export default function PaymentForm() {
                             <CardElement options={CARD_OPTION}/>
                         </div>
                     </fieldset>
-                    <button>Pay</button>
+                    <button className="pay">Pay</button>
                     <p>Payment Coming Soon</p>
                     
                 </form>
