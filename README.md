@@ -20,6 +20,7 @@ in future, the following features will be implemented:
 
 - Connect the Stripe payment to the backend.
 - Add user authentications to the app.
+- Add comment the products.
 
 ## Bugs/Issues
 - Payment component is not connected to the backend
