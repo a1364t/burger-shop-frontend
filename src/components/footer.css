@@ -7,7 +7,7 @@
     }
 }
 .Footer {
-    position: relative;
+    position: fixed;     
     bottom: 0;
     left: 0; 
     width: 100%;  
@@ -17,7 +17,7 @@
     font-weight: bolder;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    margin-top: 46px;
+    margin-top: 200px;    
 
 }
 
@@ -56,6 +56,10 @@
   .fa-instagram {
       background-color: #EA0C5F;
       color: white;
+  }
+
+  .fakeGap {
+    height: 250px;    
   }
 
 
