@@ -13,19 +13,22 @@ body {
 .products {    
     display: inline-flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 0 auto;
     padding-left: 32px;
 }
 
 @media (max-width: 480px) {
     .products {
-        margin: 0 auto 0;
-        padding-left: 12px;
+        margin-right: 56px;
+        padding-left: 0px;       
     }
     .addOrder {
         margin: 0 auto 0;
-        padding-left: 50px;
+        padding-left: 20px;
+    }
+    .image {
+        margin: 0 auto 0;
     }
     
 }
@@ -48,7 +51,7 @@ body {
     
 }
 
-.items {    
+.items {        
     width: 33%;
     min-width: 300px;
     text-align: left;     

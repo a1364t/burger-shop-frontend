@@ -2,12 +2,14 @@
 
 @media (max-width: 480px) {
     .Footer {
-        display: none;
-        visibility: hidden;
+      position: relative;
+      display: none;
+      visibility: hidden;
+        
     }
 }
 .Footer {
-    position: fixed;     
+    position: relative;     
     bottom: 0;
     left: 0; 
     width: 100%;  
