@@ -43,6 +43,7 @@
 .label {
     font-weight: bolder;
     margin-top: 16px;
+    font-size: larger;
 }
 
 .error {
