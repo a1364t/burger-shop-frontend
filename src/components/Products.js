@@ -18,6 +18,7 @@ class Products extends Component {
         }; 
     }
     
+    
     componentDidMount() {
         const fetchProducts = () => {
             axios(SERVER_URL).then((response) => {
