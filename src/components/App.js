@@ -5,7 +5,6 @@ import StripeContainer from "./StripeContainer";
 import React,{useState} from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
 import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 
 
