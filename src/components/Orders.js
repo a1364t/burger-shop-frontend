@@ -32,12 +32,12 @@ const Orders = (props) => {
 
 const CustomerForm = (props) => {
     const current_order = props.current_order
-   const [name, setName] = useState('');
-   const [phone, setPhone] = useState('');
-   const [phoneNumberCheck, setPhoneNumberCheck] = useState('');
-   const [order, setOder] = useState([]);
-   const phoneNumberError = [];
-   const [validatePhone, setValidatePhone] = useState([]);
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [phoneNumberCheck, setPhoneNumberCheck] = useState('');
+    const [order, setOder] = useState([]);
+    const phoneNumberError = [];
+    const [validatePhone, setValidatePhone] = useState([]);
 
     const _handleChangeName = (event) => {
         setName(event.target.value);              
